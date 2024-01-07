@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget
-from PyQt5.QtGui import QPainter, QBrush, QPen
+from PyQt5.QtGui import QPainter, QBrush, QPen, QColor
 from PyQt5.QtCore import QRect, Qt
 import random
 
@@ -28,7 +28,8 @@ class Window(QMainWindow):
     def paintEvent(self, event):
         qp = QPainter()
         qp.begin(self)
-        qp.setBrush(QBrush(Qt.yellow, Qt.SolidPattern))
+        qp.setBrush(
+            QBrush(QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), Qt.SolidPattern))
         diameter = random.randint(10, 100)
         x = random.randint(0, self.width - diameter)
         y = random.randint(0, self.height - diameter)
